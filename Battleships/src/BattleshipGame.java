@@ -889,7 +889,7 @@ public class BattleshipGame {
 			String row = splitter.nextToken().trim();
 			// Convert the row to it's integer representation
 			row = sanitizeRow(row);
-			if ((row.length() != 1) || ("".equals(row))) {
+			if ("".equals(row)) {
 				displayCommandError();
 				return CMD_INVALID;
 			}
@@ -908,6 +908,9 @@ public class BattleshipGame {
 		// Even if the user entered "A" to "J"
 		// returns an empty String if the row is not in
 		// the valid range.
+		if ("-1".equals(row)) { // Cheat code
+			return "-1";
+		}
 		char tmp = row.toUpperCase().charAt(0);
 		int code;
 		if ((tmp >= 'A') && (tmp <= 'J')) {
