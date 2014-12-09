@@ -557,7 +557,7 @@ public class BattleshipGame {
 
 	public String returnRowLetter(int i) {
 		if ((i >= 0) && (i <= 9)) {
-			return String.valueOf(i + 'A');
+			return String.valueOf((char)(i + 'A'));
 		}
 		return ""; // out of range. possible erroneous value.
 	}

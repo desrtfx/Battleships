@@ -11,7 +11,7 @@ public class Battleships {
 	private char charSymbol;
 	private int shipSize;
 	private boolean horizontal, sunk = false;
-	private boolean[] hit = new boolean[shipSize];
+	private boolean[] hit;
 
 	public Battleships(int row, int col, char charSymbol, int shipSize,
 			boolean horizontal) {
@@ -20,9 +20,11 @@ public class Battleships {
 		this.charSymbol = charSymbol;
 		this.shipSize = shipSize;
 		this.horizontal = horizontal;
+		hit =  new boolean[shipSize];
 		for (int i = 0; i < shipSize; i++) {
 			hit[i] = false;
 		}
+		this.sunk = false;
 	}
 
 	/**
@@ -43,6 +45,7 @@ public class Battleships {
 		this.charSymbol = data[2].charAt(0);
 		this.shipSize = Integer.parseInt(data[3]);
 		this.horizontal = Boolean.parseBoolean(data[4]);
+		hit = new boolean[shipSize];
 		decodeHitArray(Integer.parseInt(data[5]));
 	}
 
@@ -75,11 +78,15 @@ public class Battleships {
 	}
 
 	public boolean isSunk() {
+		if (sunk) {
+			return true;
+		}
 		for (int i = 0; i < shipSize; i++) {
 			if (!hit[i]) {
 				return false;
 			}
 		}
+		sunk = true;
 		return true;
 	}
 
