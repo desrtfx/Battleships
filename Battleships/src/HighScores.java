@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,7 +14,12 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 
-public class HighScores {
+public class HighScores implements Serializable {
+
+	/**
+	 * Serialization ID
+	 */
+	private static final long serialVersionUID = -6279511178590485096L;
 
 	// Maximum allowed size for the list
 	private static final int MAX_SIZE = 10;

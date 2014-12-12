@@ -1,5 +1,12 @@
+import java.io.Serializable;
 
-public class HighScore implements Comparable<HighScore> {
+
+public class HighScore implements Comparable<HighScore>, Serializable {
+
+	/**
+	 * Serialization ID
+	 */
+	private static final long serialVersionUID = -2934099689576386066L;
 
 	private String name;
 	private int score;

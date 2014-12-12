@@ -10,8 +10,6 @@ import java.util.Scanner;
  * @version 09.11.2014
  */
 
-// comment desrtfx: I'd make all methods other than **menu()** private so that
-// they are not accessible from outside the class
 
 public class Menu {
 	public static Scanner userinput = new Scanner(System.in);
@@ -23,8 +21,8 @@ public class Menu {
 		do {
 			menuScreen();
 			System.out
-					.println("\n\t\t\t\t\t\t\t\t\t\tPlease select an option from above(1 - 7): "
-							+ "" + "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); // prompt
+					.print("\n\t\t\t\t\t\t\t\t\t\tPlease select an option from above(1 - 7): "
+							); // prompt
 																			// user
 																			// to
 																			// enter
@@ -206,24 +204,8 @@ public class Menu {
 
 	public static void newGame() {
 		clrscr();
-		System.out
-				.println("\t\t\t\t\t\t\t\t같같같같같같같같같같같같같같같같같같같같같� Welcome to the Battleship War Commander! 같같같같같같같같같같같같같같같같같같같같같�");
-		printWave();
-		System.out.println("");
-		System.out
-				.print("\n\nFirstly Commander, what name would you like to be addressed by? "); // Ask
-																								// the
-																								// player
-																								// their
-																								// name
-		BattleshipGame.setName(userinput.nextLine());
-		clrscr();
-		System.out.println("\t\t\t\t\t\t\t\tWelcome Commander "
-				+ BattleshipGame.getName());
-		printWave();
-		System.out.println("!\n\n\t\t\t\t\t\t\tWe shall be valiant in battle!");
-		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		BattleshipGame game = new BattleshipGame();
+		game.init();
 		BattleshipInterface userInterface = new BattleshipInterface();
 		userInterface.run(game);
 	}

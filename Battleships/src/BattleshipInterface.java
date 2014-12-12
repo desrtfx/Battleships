@@ -14,9 +14,15 @@ public class BattleshipInterface {
 		boolean backToMenu = false;
 		int command;
 
+		clrscr();
+		
 		while ((!game.gameOver()) && (!backToMenu)) {
-			// clrscr();
+			//clrscr();
+			game.printSpacer();
 			game.printBoard();
+			//game.userMove();
+			//game.printBoard();
+			//game.compMove();
 			System.out
 					.print("\n\n\t\t\t\t\t\t\tCommander "
 							+ BattleshipGame.getName()
@@ -61,7 +67,7 @@ public class BattleshipInterface {
 	}
 
 	/**
-	 * @clrscr removes all text from the screen
+	 * removes all text from the screen
 	 * @param none
 	 */
 	public static void clrscr() {
@@ -70,7 +76,7 @@ public class BattleshipInterface {
 	}
 
 	/**
-	 * @pressKey requires the user to press return to continue
+	 * requires the user to press return to continue
 	 * @param none
 	 */
 	public static void pressKey() {
